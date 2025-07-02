@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\xenia\\OneDrive\\Escritorio\\TravelIA\\backend\\Backend\\Backend.csproj": {}
+    "C:\\Users\\xenia\\OneDrive\\Escritorio\\TravelIA\\backend\\Backend\\Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\xenia\\OneDrive\\Escritorio\\TravelIA\\backend\\Backend\\Backend.csproj": {
+    "C:\\Users\\xenia\\OneDrive\\Escritorio\\TravelIA\\backend\\Backend\\Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\xenia\\OneDrive\\Escritorio\\TravelIA\\backend\\Backend\\Backend.csproj",
-        "projectName": "Backend",
-        "projectPath": "C:\\Users\\xenia\\OneDrive\\Escritorio\\TravelIA\\backend\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\xenia\\OneDrive\\Escritorio\\TravelIA\\backend\\Backend\\Api.csproj",
+        "projectName": "Api",
+        "projectPath": "C:\\Users\\xenia\\OneDrive\\Escritorio\\TravelIA\\backend\\Backend\\Api.csproj",
         "packagesPath": "C:\\Users\\xenia\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\xenia\\OneDrive\\Escritorio\\TravelIA\\backend\\Backend\\obj\\",
         "projectStyle": "PackageReference",
