@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
+using System.Threading.Tasks;
 using TravelRecommender.Api.Models;
+using TravelRecommender.Api.Services;
 
 namespace TravelRecommender.Api.Controllers
 {
@@ -13,9 +15,15 @@ namespace TravelRecommender.Api.Controllers
     public class RecommendationsController : ControllerBase
     {
         private readonly string _jsonPath = "MockData/Destinations.json";
+        private readonly LLMService _llmService;
+
+        public RecommendationsController(LLMService llmService)
+        {
+            _llmService = llmService;
+        }
 
         [HttpPost]
-        public IActionResult Post([FromBody] UserPrompt prompt)
+        public async Task<IActionResult> PostAsync([FromBody] UserPrompt prompt)
         {
             if (!System.IO.File.Exists(_jsonPath))
                 return NotFound("Destinations file not found.");
@@ -46,5 +54,17 @@ namespace TravelRecommender.Api.Controllers
 
             return Ok(recommendations);
         }
+
+        [HttpPost("ai")]
+        public async Task<IActionResult> PostWithLLMAsync([FromBody] UserPrompt prompt)
+        {
+            var userPrompt = $"I recently traveled to {prompt.PreviousDestination} for {prompt.DurationDays} days with a budget of {prompt.Budget} euros from {prompt.Origin}. I really enjoyed the trip. Can you suggest 3 similar travel destinations, with a similar duration and budget? For each one, include: - Destination name - A short description - Estimated budget - Sample hotels - Sample flights. Please format your response as JSON.";
+
+            var response = await _llmService.GenerateResponseAsync(userPrompt);
+
+            // Optional: try to parse response as JSON if you're confident in the LLM's formatting
+            return Ok(response);
+        }
+
     }
 }
